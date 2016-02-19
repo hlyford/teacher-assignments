@@ -1,0 +1,50 @@
+<h1 class="push-right">Assignments</h1>
+<div class="container-main">  
+ 
+ 	<div class="assignments-container"> 
+		<table class="table table-striped spacing"> 
+			<thead> 
+				<tr> 				
+					<th>Assignments</th> 				
+				</tr> 
+			</thead> 
+				<tbody> 
+				<tr ng-repeat="assignment in assignments | orderBy:'-due_date'" ng-click="showAssignmentInfo($index, $event)">		
+						<td>{{ assignment.title }} <br />
+						{{assignment.due_at | date: format: 'MMMM' }}</td> 					
+				</tr> 			
+			</tbody> 
+		</table>
+	</div>
+
+	<div class="display-container" >
+		<div> 
+			<div ng-show="assignmentSelected">
+				<span id="assignment" ng-click="toggleAssignmentView($event)">Assignment |</span>
+				<span id="submissions" ng-click="toggleAssignmentView($event)"> Submissions</span>
+			</div>
+
+			<h1 ng-show="!assignmentSelected">Please Select an Assignment</h1>
+			<div ng-show="showingDescription">
+				<div class="date-display">Due date: {{ selectedAssignment.due_at | date: format: 'MMMM' }}</div>
+				<h1>{{ selectedAssignment.title }}</h1>			
+				<div > {{ selectedAssignment.description }} </div>
+			</div>
+
+			
+			<div ng-show="!showingDescription" ng-repeat="student in selectedAssignmentSubmissions">
+				<div class="submission-info">
+					<img src="{{ student.creator.avatars.large }}" class="student-image" />
+					<img src="images/dropdown.png" class="dropdown-icon" ng-click="showStudentContent($index, $event)" />
+					<div class="student-text"><h2>{{ student.creator.first_name + " " + student.creator.last_name }} </h2></div>					
+					<div class="student-text">{{ student.submitted_at | date: format: 'MMMM' }}</div>
+				</div>				
+				<div ng class="submission-content" ng-show="visibleStudentContent($index) ">
+					{{ student.content }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>

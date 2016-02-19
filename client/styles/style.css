@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'HelveticaNeue-Thin'; /*a name to be used later*/
+  src: url('../images/HelveticaNeue-Thin.otf'); /*URL to font*/
+}
+
+.assignments-container {
+	float: left;
+  width: 30%;
+  margin-left: 10%;
+}
+
+.display-container {
+	margin-left: 30%;
+	margin-right: 10%;
+	border: 1px solid black;
+	padding: 1% 3% 3% 3%;
+}
+
+table {
+	border: 1px solid black;
+}
+td {
+	border: 1px solid black;	
+}
+
+.date-display {
+	float: right;
+	margin-right: 20%;
+}
+.student-image {
+	float: left;	
+}
+.student-text {
+	margin-left: 25%;
+}
+.submission-info {
+	height: 200px;
+}
+.push-right {
+	padding-left: 2%;
+}
+.dropdown-icon {
+	float:right;
+}
