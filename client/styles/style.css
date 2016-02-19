@@ -2,10 +2,12 @@
   font-family: 'HelveticaNeue-Thin'; /*a name to be used later*/
   src: url('../images/HelveticaNeue-Thin.otf'); /*URL to font*/
 }
-
+.container-main {
+	margin-top: 5%;
+}
 .assignments-container {
 	float: left;
-  width: 30%;
+  width: 20%;
   margin-left: 10%;
 }
 
@@ -19,13 +21,16 @@
 table {
 	border: 1px solid black;
 }
+tr, table{
+	max-width: 200px;
+}
 td {
 	border: 1px solid black;	
 }
 
 .date-display {
 	float: right;
-	margin-right: 20%;
+	margin-right: 10%;
 }
 .student-image {
 	float: left;	
@@ -34,11 +39,15 @@ td {
 	margin-left: 25%;
 }
 .submission-info {
-	height: 200px;
+	height: 160px;
 }
 .push-right {
 	padding-left: 2%;
 }
 .dropdown-icon {
 	float:right;
+}
+.icons {
+	width: 30px;
+	float: right;
 }

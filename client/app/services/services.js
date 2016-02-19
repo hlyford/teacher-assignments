@@ -1,29 +1,35 @@
-angular.module('shortly.services', [])
-
-.factory('Links', function ($http) {
-  var getAll = function () {
+angular.module('teacher.services', [])
+// FACTORY FOR GET-ING ASSIGNMENTS
+.factory('Assignments', function ($http) {
+  var getAssignments = function (url, token, per_page) {
     return $http({
       method: 'GET',
-      url: '/api/links'
+      url: url,
+      params: {access_token: token, per_page: per_page}
     })
-    .then(function (resp) {
+    .then(function (resp) {      
       return resp.data;
     });
   };
 
-  var addOne = function (link) {
+  return {
+    getAssignments: getAssignments
+  };
+})
+// FACTORY FOR GET-ING SUBMISSIONS
+.factory('Submissions', function ($http) {
+  var getSubmissions = function (url, token, assignment_id, assignment_creator_id) {
     return $http({
-      method: 'POST',
-      url: '/api/links',
-      data: link
+      method: 'GET',
+      url: url,
+      params: {access_token: token, assignment_id: assignment_id, assignment_creator_id: assignment_creator_id}
     })
-    .then(function (resp) {
-      return resp;
+    .then(function (resp) {      
+      return resp.data;
     });
   };
 
   return {
-    getAll: getAll,
-    addOne: addOne
+    getSubmissions: getSubmissions    
   };
 })

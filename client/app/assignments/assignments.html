@@ -2,10 +2,13 @@
 <div class="container-main">  
  
  	<div class="assignments-container"> 
-		<table class="table table-striped spacing"> 
+		<table class="table spacing table-hover"> 
 			<thead> 
 				<tr> 				
-					<th>Assignments</th> 				
+					<th>
+						Assignments
+						<img src="images/plus.png" class="icons" />
+					</th> 				
 				</tr> 
 			</thead> 
 				<tbody> 
@@ -20,8 +23,8 @@
 	<div class="display-container" >
 		<div> 
 			<div ng-show="assignmentSelected">
-				<span id="assignment" ng-click="toggleAssignmentView($event)">Assignment |</span>
-				<span id="submissions" ng-click="toggleAssignmentView($event)"> Submissions</span>
+				<button class="btn btn-default" id="assignment" ng-click="toggleAssignmentView($event)">Assignment</button>
+				<button class="btn btn-default" id="submissions" ng-click="toggleAssignmentView($event)"> Submissions</button>
 			</div>
 
 			<h1 ng-show="!assignmentSelected">Please Select an Assignment</h1>

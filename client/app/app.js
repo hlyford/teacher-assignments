@@ -1,5 +1,5 @@
 var app = angular.module('teacher', 
-  ['teacher.assignments', 'ngRoute']);
+  ['teacher.services', 'teacher.assignments', 'ngRoute']);
 
 app.config(function ($routeProvider, $httpProvider) {
   $routeProvider    

@@ -9,5 +9,5 @@ module.exports = function (app, express) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));  
 
-  console.log((path.join(__dirname, "/../client")));
+  console.log("Serving up client assets from: ", (path.join(__dirname, "/../client")));
 }
