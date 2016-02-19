@@ -44,10 +44,16 @@ td {
 .push-right {
 	padding-left: 2%;
 }
+.push-down {
+	padding-bottom: 2%;
+}
 .dropdown-icon {
 	float:right;
 }
 .icons {
 	width: 30px;
 	float: right;
+}
+.prompt-entry {
+	min-width: 400px;
 }

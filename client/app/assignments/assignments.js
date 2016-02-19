@@ -16,8 +16,8 @@ angular.module('teacher.assignments', [])
   // calls the API to retrieve the assignments
   function loadAssignments() {
     Assignments.getAssignments(assignmentsEndpoint, token, per_page)
-      .then(function(response) {        
-        $scope.assignments = response;
+      .then(function(response) {             
+        $scope.assignments = response;        
       // pull the current assignment from the query string if there is a search param
         var selectedAssignmentIndex = $location.search().assignment;      
         if (selectedAssignmentIndex !== undefined) {
@@ -25,7 +25,7 @@ angular.module('teacher.assignments', [])
           $scope.showingDescription = true;
           $scope.selectedAssignment = $scope.assignments[selectedAssignmentIndex];
         }
-      });
+      });      
   }
   loadAssignments();  
 
@@ -56,12 +56,29 @@ angular.module('teacher.assignments', [])
   $scope.showStudentContent = function(index, element) {
     $scope.showingStudentContent[index] ? $scope.showingStudentContent[index] = false : $scope.showingStudentContent[index] = true;    
   }
-  
+
   // determines which students' content is showing at given time
   $scope.visibleStudentContent = function(index) {    
     if ($scope.showingStudentContent[index]) {      
       return true;
     }
   }
+
+  // logic for adding new assignment
+  $scope.newAssignment = {
+    title: "Enter title",
+    prompt: "Enter prompt",
+    due_at: "2016-06-29T00:22:32.000Z"
+
+  };
+  $scope.addAssignment = function() {    
+    $scope.assignments.push({
+      title: $scope.newAssignment.title,
+      description: $scope.newAssignment.prompt,
+      due_at: $scope.newAssignment.due_at
+    });    
+    // reset the entries on state
+    $scope.newAssignment.title = '', $scope.newAssignment.prompt='';    
+  };
  
 });
